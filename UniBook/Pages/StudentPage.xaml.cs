@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace UniBook.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainPage.xaml
+    /// Логика взаимодействия для StudentPage.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class StudentPage : Page
     {
-        public MainPage()
+        public StudentPage()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            NavigationService?.Navigate(new RegPage());
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            NavigationService?.Navigate(new AuthPage());
         }
     }
 }

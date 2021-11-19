@@ -12,27 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using UniBook.Pages;
 namespace UniBook.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainPage.xaml
+    /// Логика взаимодействия для TeacherPage.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class TeacherPage : Page
     {
-        public MainPage()
+        public TeacherPage()
         {
             InitializeComponent();
+            HelloTeacher.Content = $"Здарвствуйте,  {User.Name}";
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            NavigationService?.Navigate(new RegPage());
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            NavigationService?.Navigate(new AuthPage());
-        }
     }
 }

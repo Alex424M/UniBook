@@ -20,9 +20,58 @@ namespace UniBook.Pages
     /// </summary>
     public partial class AuthPage : Page
     {
+        public static string name;
         public AuthPage()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(Login.Text) || string.IsNullOrEmpty(Password.Password))
+            {
+                MessageBox.Show("Введите логин и пароль!");
+                return;
+            }
+
+            using (var uniBook = new Entities())
+            {
+                var student = uniBook.Student
+                    .AsNoTracking()
+                    .FirstOrDefault(u => u.FIO == Login.Text && u.Password == Password.Password);
+                if (student == null)
+                {
+                    var teacher = uniBook.Teacher
+                    .AsNoTracking()
+                    .FirstOrDefault(u => u.FIO == Login.Text && u.Password == Password.Password);
+                    if (teacher == null)
+                    {
+                        MessageBox.Show("Пользователь не найден!");
+                        return;
+                    }
+                    else
+                    {
+                        setUser(teacher.FIO, teacher.ID);
+                        NavigationService?.Navigate(new TeacherPage());
+                    }
+                }
+                else
+                {
+                    setUser(student.FIO, student.ID, student.IDGroup);
+                    NavigationService?.Navigate(new StudentPage());
+                }
+            }
+        }
+        private void setUser(string name, int id)
+        {
+            User.ID = id;
+            User.Name = name;
+        }
+        private void setUser(string name, int id, int group)
+        {
+            User.ID = id;
+            User.Name = name;
+            User.IDGroup = group;
         }
     }
 }

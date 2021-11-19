@@ -23,6 +23,83 @@ namespace UniBook.Pages
         public RegPage()
         {
             InitializeComponent();
+            CmbGroup.ItemsSource = Entities.GetContext().Group.ToList();
+        }
+
+        private void CheckTeacher_Checked(object sender, RoutedEventArgs e)
+        {
+            if (CheckTeacher.IsChecked == true)
+            {
+                CmbGroup.Visibility = Visibility.Hidden;
+                LblGroup.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void CheckTeacher_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (CheckTeacher.IsChecked == false)
+            {
+                CmbGroup.Visibility = Visibility.Visible;
+                LblGroup.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(Login.Text) || string.IsNullOrEmpty(Passwords.Password) || string.IsNullOrEmpty(RepPass.Password))
+            {
+                if (CheckTeacher.IsChecked == false && CmbGroup.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Заполните все поля");
+                }
+            }
+
+            else if (Passwords.Password.Length >= 6)
+            {
+                bool en = true; // английская раскладка
+
+                for (int i = 0; i < Passwords.Password.Length; i++) // перебираем символы
+                {
+                    if (Passwords.Password[i] >= 'А' && Passwords.Password[i] <= 'Я') en = false; // если русская раскладка
+                }
+
+                if (!en)
+                    MessageBox.Show("Доступна только английская раскладка"); // выводим сообщение
+                else if (Passwords.Password == RepPass.Password) // проверка на совпадение паролей
+                {
+                    MessageBox.Show("Пользователь зарегистрирован");
+                    if (CheckTeacher.IsChecked == true)
+                    {
+                        using (Entities db = new Entities())
+                        {
+                            Teacher userObject = new Teacher
+                            {
+                                FIO = Login.Text,
+                                Password = Passwords.Password
+                            };
+                            db.Teacher.Add(userObject);
+                            db.SaveChanges();
+                        }
+                    }
+                    else if (CheckTeacher.IsChecked == false)
+                    {
+                        using (Entities db = new Entities())
+                        {
+                            Student userObject = new Student
+                            {
+                                FIO = Login.Text,
+                                Password = Passwords.Password,
+                                IDGroup = CmbGroup.SelectedIndex + 1
+                            };
+                            db.Student.Add(userObject);
+                            db.SaveChanges();
+                        }
+                    }
+                    NavigationService?.GoBack();
+                }
+                else MessageBox.Show("Пароли не совподают");
+            }
+            else MessageBox.Show("пароль слишком короткий, минимум 6 символов");
         }
     }
 }

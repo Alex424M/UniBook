@@ -24,7 +24,7 @@
             <RowDefinition Height="151*"/>
         </Grid.RowDefinitions>
         <Label Content="Добро пожаловать!" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Grid.Row="1" Grid.Column="1"></Label>
-        <Button Content="Авторизация" Grid.Row="3" Grid.Column="1"/>
+        <Button Content="Авторизация" Grid.Row="3" Grid.Column="1" Click="Button_Click_2"/>
         <Button Content="Регистрация" Grid.Row="5" Grid.Column="1" Click="Button_Click_1"/>
     </Grid>
 </Page>
