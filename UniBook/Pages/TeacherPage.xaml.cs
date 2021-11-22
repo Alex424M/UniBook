@@ -26,5 +26,19 @@ namespace UniBook.Pages
             HelloTeacher.Content = $"Здарвствуйте,  {User.Name}";
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new CreateTheory());
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new CreateTesting());
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new ShowRating());
+        }
     }
 }
