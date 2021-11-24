@@ -9,6 +9,30 @@
       Title="CreateTesting">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="417*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Content="Добавить" VerticalAlignment="Top" Height="32" Click="Button_Click" Margin="596,0,60,0"/>
+        <DataGrid x:Name="dgQuestion" Grid.Row="1" Grid.RowSpan="2" IsReadOnly="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="False" Header="Вопрос" Width="200"/>
+                <DataGridTextColumn IsReadOnly="False" Header="Ответ 1"  Width="100"/>
+                <DataGridTextColumn IsReadOnly="False" Header="Ответ 2"  Width="100"/>
+                <DataGridTextColumn IsReadOnly="False" Header="Ответ 3" Width="100"/>
+                <DataGridTextColumn IsReadOnly="False" Header="Ответ 4" Width="100"/>
+                <DataGridTextColumn IsReadOnly="False" Header="Правильный ответ"  Width="*"/>
+                <DataGridTemplateColumn Header="Тип ответа" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox Content="Один ответ"></CheckBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </Page>

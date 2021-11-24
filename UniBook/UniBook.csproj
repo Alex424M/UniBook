@@ -71,10 +71,20 @@
     <Compile Include="Material.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Pages\CreateTesting.xaml.cs">
       <DependentUpon>CreateTesting.xaml</DependentUpon>
@@ -104,6 +114,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Student.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Teacher.cs">
@@ -178,16 +191,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
     </Compile>
@@ -231,18 +234,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
@@ -276,6 +267,18 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
