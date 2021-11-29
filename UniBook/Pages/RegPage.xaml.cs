@@ -101,5 +101,38 @@ namespace UniBook.Pages
             }
             else MessageBox.Show("пароль слишком короткий, минимум 6 символов");
         }
+        private void OnPasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (Passwords.Password.Length > 0)
+            {
+                Watermark.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Watermark.Visibility = Visibility.Visible;
+            }
+        }
+        private void OnPasswordChanged1(object sender, RoutedEventArgs e)
+        {
+            if (RepPass.Password.Length > 0)
+            {
+                Watermark1.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Watermark1.Visibility = Visibility.Visible;
+            }
+        }
+        private void OnItemChanged(object sender, RoutedEventArgs e)
+        {
+            if (CmbGroup.SelectedIndex > -1)
+            {
+                Watermark2.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Watermark2.Visibility = Visibility.Visible;
+            }
+        }
     }
 }

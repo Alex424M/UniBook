@@ -25,8 +25,8 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label x:Name="HelloTeacher" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" Margin="0,0,59,0"/>
-        <Button Content="Просмотр теории" Grid.Column="1" Grid.Row="2" Click="Button_Click"/>
-        <Button Content="Пройти тест" Grid.Column="1" Grid.Row="4" Click="Button_Click_1"/>
-        <Button Content="Просмотр результатов" Grid.Column="1" Grid.Row="6" Click="Button_Click_2"/>
+        <Button ToolTip="Просмотр теории" Content="Просмотр теории" Grid.Column="1" Grid.Row="2" Click="Button_Click"/>
+        <Button ToolTip="Пройти тест" Content="Пройти тест" Grid.Column="1" Grid.Row="4" Click="Button_Click_1"/>
+        <Button ToolTip="Просмотр результатов" Content="Просмотр результатов" Grid.Column="1" Grid.Row="6" Click="Button_Click_2"/>
     </Grid>
 </Page>

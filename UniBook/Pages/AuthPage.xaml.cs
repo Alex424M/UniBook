@@ -25,7 +25,7 @@ namespace UniBook.Pages
         {
             InitializeComponent();
         }
-
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(Login.Text) || string.IsNullOrEmpty(Password.Password))
@@ -72,6 +72,18 @@ namespace UniBook.Pages
             User.ID = id;
             User.Name = name;
             User.IDGroup = group;
+        }
+
+        private void OnPasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (Password.Password.Length > 0)
+            {
+                Watermark.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Watermark.Visibility = Visibility.Visible;
+            }
         }
     }
 }

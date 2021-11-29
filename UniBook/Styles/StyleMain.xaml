@@ -3,5 +3,4 @@
     <Style TargetType="Grid">
         <Setter Property="Background" Value="#fff"/>
     </Style>
-    
 </ResourceDictionary>
