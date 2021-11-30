@@ -23,11 +23,21 @@ namespace UniBook.Pages
         public CreateTesting()
         {
             InitializeComponent();
+            dgQuestion.ItemsSource = Entities.GetContext().Questions.ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            NavigationService?.Navigate(new AddQuestion());
+        }
 
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            //    if (Visibility == Visibility.Visible)
+            //    {
+            //        Entities.GetContext().ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
+            //        dgQuestion.ItemsSource = Entities.GetContext().Questions.ToList();
+            //    }
         }
     }
 }

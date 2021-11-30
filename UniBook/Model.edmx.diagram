@@ -18,6 +18,7 @@
         <AssociationConnector Association="UniBookModel.FK_Questions_Theory" ManuallyRouted="false" />
         <AssociationConnector Association="UniBookModel.FK_Testing_Student" ManuallyRouted="false" />
         <AssociationConnector Association="UniBookModel.FK_Theory_Teacher" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="UniBookModel.sysdiagrams" Width="1.5" PointX="5.375" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
