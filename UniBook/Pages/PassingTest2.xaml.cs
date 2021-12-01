@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -26,26 +27,27 @@ namespace UniBook.Pages
             InitializeComponent();
             IdTest1 = IdTest;
         }
-            List<string> questionlist = new List<string>();
-        int k = 0;
+        List<string> questionlist = new List<string>();
         int IdTest1;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            questionlbl.Content = questionlist[k];
-            k++;
+
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            //string name;
-            //string sqlExpression = $"SELECT Question FROM Questions WHERE IDTesting='{IdTest1}'";
-            //using (SqlConnection connection = new SqlConnection(@"data source=DESKTOP-E0VOF7A;initial catalog=UniBook;integrated security=True;MultipleActiveResultSets=True;"))
-            //{
-            //    connection.Open();
-            //    SqlCommand command = new SqlCommand();
-            //    command.CommandText = sqlExpression;
-            //    command.Connection = connection;
-            //    questionlist =command.;
-            //}
+            string sqlExpression = $"SELECT TOP 5 Question, Option1, Option2, Option3, Option4, Answer FROM Questions WHERE IDTheory={IdTest1} ORDER BY IDTheory DESC";
+            using (SqlConnection connection = new SqlConnection(@"data source=DESKTOP-E0VOF7A;initial catalog=UniBook;integrated security=True;MultipleActiveResultSets=True;"))
+            {
+                connection.Open();
+                SqlCommand createCommand = new SqlCommand(sqlExpression, connection);
+                createCommand.ExecuteNonQuery();
+
+                SqlDataAdapter dataAdp = new SqlDataAdapter(createCommand);
+                DataTable dt = new DataTable("Questions"); // В скобках указываем название таблицы
+                dataAdp.Fill(dt);
+                dgQuest.ItemsSource = dt.DefaultView; // Сам вывод 
+                connection.Close();
+            }
         }
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)

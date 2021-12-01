@@ -21,10 +21,8 @@ namespace UniBook
         public string Option3 { get; set; }
         public string Option4 { get; set; }
         public string Answer { get; set; }
-        public int IDTesting { get; set; }
         public int IDTheory { get; set; }
     
-        public virtual Testing Testing { get; set; }
         public virtual Theory Theory { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace UniBook
     public partial class Teacher
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public void Questions()
+        public Teacher()
         {
             this.Theory = new HashSet<Theory>();
         }

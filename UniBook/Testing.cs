@@ -14,12 +14,6 @@ namespace UniBook
     
     public partial class Testing
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Testing()
-        {
-            this.Questions = new HashSet<Questions>();
-        }
-    
         public int ID { get; set; }
         public int Estimation { get; set; }
         public int CorrectAnswers { get; set; }
@@ -27,8 +21,6 @@ namespace UniBook
         public System.DateTime Ended { get; set; }
         public int IDStudent { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Questions> Questions { get; set; }
         public virtual Student Student { get; set; }
     }
 }

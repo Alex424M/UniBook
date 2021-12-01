@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище UniBookModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище UniBookModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Group">
           <Key>
             <PropertyRef Name="ID" />
@@ -30,7 +30,6 @@
           <Property Name="Option3" Type="nvarchar" MaxLength="50" />
           <Property Name="Option4" Type="nvarchar" MaxLength="50" />
           <Property Name="Answer" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="IDTesting" Type="int" Nullable="false" />
           <Property Name="IDTheory" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Student">
@@ -80,18 +79,6 @@
           <Property Name="IDTeacher" Type="int" Nullable="false" />
           <Property Name="IDMaterial" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Questions_Testing">
-          <End Role="Testing" Type="Self.Testing" Multiplicity="1" />
-          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Testing">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Questions">
-              <PropertyRef Name="IDTesting" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Questions_Theory">
           <End Role="Theory" Type="Self.Theory" Multiplicity="1" />
           <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
@@ -100,7 +87,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Questions">
-              <PropertyRef Name="IDTesting" />
+              <PropertyRef Name="IDTheory" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -161,10 +148,6 @@
           <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Testing" EntityType="Self.Testing" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Theory" EntityType="Self.Theory" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Questions_Testing" Association="Self.FK_Questions_Testing">
-            <End Role="Testing" EntitySet="Testing" />
-            <End Role="Questions" EntitySet="Questions" />
-          </AssociationSet>
           <AssociationSet Name="FK_Questions_Theory" Association="Self.FK_Questions_Theory">
             <End Role="Theory" EntitySet="Theory" />
             <End Role="Questions" EntitySet="Questions" />
@@ -186,7 +169,8 @@
             <End Role="Theory" EntitySet="Theory" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="UniBookModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -217,9 +201,7 @@
           <Property Name="Option3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Option4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Answer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IDTesting" Type="Int32" Nullable="false" />
           <Property Name="IDTheory" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Testing" Relationship="Self.FK_Questions_Testing" FromRole="Questions" ToRole="Testing" />
           <NavigationProperty Name="Theory" Relationship="Self.FK_Questions_Theory" FromRole="Questions" ToRole="Theory" />
         </EntityType>
         <EntityType Name="Student">
@@ -232,6 +214,16 @@
           <Property Name="IDGroup" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Group" Relationship="Self.FK_Student_Group" FromRole="Student" ToRole="Group" />
           <NavigationProperty Name="Testing" Relationship="Self.FK_Testing_Student" FromRole="Student" ToRole="Testing" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Teacher">
           <Key>
@@ -252,7 +244,6 @@
           <Property Name="Started" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Ended" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="IDStudent" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Questions" Relationship="Self.FK_Questions_Testing" FromRole="Testing" ToRole="Questions" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Testing_Student" FromRole="Testing" ToRole="Student" />
         </EntityType>
         <EntityType Name="Theory">
@@ -291,18 +282,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Questions_Testing">
-          <End Role="Testing" Type="Self.Testing" Multiplicity="1" />
-          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Testing">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Questions">
-              <PropertyRef Name="IDTesting" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Questions_Theory">
           <End Role="Theory" Type="Self.Theory" Multiplicity="1" />
           <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
@@ -311,7 +290,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Questions">
-              <PropertyRef Name="IDTesting" />
+              <PropertyRef Name="IDTheory" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -344,6 +323,7 @@
           <EntitySet Name="Material" EntityType="Self.Material" />
           <EntitySet Name="Questions" EntityType="Self.Questions" />
           <EntitySet Name="Student" EntityType="Self.Student" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Teacher" EntityType="Self.Teacher" />
           <EntitySet Name="Testing" EntityType="Self.Testing" />
           <EntitySet Name="Theory" EntityType="Self.Theory" />
@@ -354,10 +334,6 @@
           <AssociationSet Name="FK_Theory_Material" Association="Self.FK_Theory_Material">
             <End Role="Material" EntitySet="Material" />
             <End Role="Theory" EntitySet="Theory" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Questions_Testing" Association="Self.FK_Questions_Testing">
-            <End Role="Testing" EntitySet="Testing" />
-            <End Role="Questions" EntitySet="Questions" />
           </AssociationSet>
           <AssociationSet Name="FK_Questions_Theory" Association="Self.FK_Questions_Theory">
             <End Role="Theory" EntitySet="Theory" />
@@ -371,18 +347,7 @@
             <End Role="Teacher" EntitySet="Teacher" />
             <End Role="Theory" EntitySet="Theory" />
           </AssociationSet>
-          <EntitySet Name="sysdiagrams" EntityType="UniBookModel.sysdiagrams" />
         </EntityContainer>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -415,7 +380,6 @@
                 <ScalarProperty Name="Option3" ColumnName="Option3" />
                 <ScalarProperty Name="Option4" ColumnName="Option4" />
                 <ScalarProperty Name="Answer" ColumnName="Answer" />
-                <ScalarProperty Name="IDTesting" ColumnName="IDTesting" />
                 <ScalarProperty Name="IDTheory" ColumnName="IDTheory" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -427,6 +391,17 @@
                 <ScalarProperty Name="FIO" ColumnName="FIO" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="IDGroup" ColumnName="IDGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="UniBookModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -458,17 +433,6 @@
                 <ScalarProperty Name="Topic" ColumnName="Topic" />
                 <ScalarProperty Name="IDTeacher" ColumnName="IDTeacher" />
                 <ScalarProperty Name="IDMaterial" ColumnName="IDMaterial" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="UniBookModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -68,7 +68,6 @@ namespace UniBook.Pages
                         Option3 = txtAnswer3.Text,
                         Option4 = txtAnswer4.Text,
                         Answer = txtTrueAnswer.Text,
-                        IDTesting = 1,
                         IDTheory = cmb1.SelectedIndex + 1
                     };
                     db.Questions.Add(questions);
@@ -84,7 +83,6 @@ namespace UniBook.Pages
                         Question = txtQustion.Text,
                         Option1 = txtAnswer1.Text,
                         Answer = txtTrueAnswer.Text,
-                        IDTesting = 1,
                         IDTheory = cmb1.SelectedIndex + 1
                     };
                     db.Questions.Add(questions);

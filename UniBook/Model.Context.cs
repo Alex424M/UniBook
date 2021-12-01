@@ -19,11 +19,6 @@ namespace UniBook
             : base("name=Entities")
         {
         }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
         private static Entities _context;
         public static Entities GetContext()
         {
@@ -31,13 +26,18 @@ namespace UniBook
                 _context = new Entities();
             return _context;
         }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
+    
         public virtual DbSet<Group> Group { get; set; }
         public virtual DbSet<Material> Material { get; set; }
         public virtual DbSet<Questions> Questions { get; set; }
         public virtual DbSet<Student> Student { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Teacher> Teacher { get; set; }
         public virtual DbSet<Testing> Testing { get; set; }
         public virtual DbSet<Theory> Theory { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }
