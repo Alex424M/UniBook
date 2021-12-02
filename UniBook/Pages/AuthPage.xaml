@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:hc="https://handyorg.github.io/handycontrol"
       xmlns:local="clr-namespace:UniBook.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -34,11 +35,11 @@
         <Label Content="Авторизация" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="34,4,35,5"/>
         <Label Content="ФИО" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="39,2"/>
         <Label Content="Пароль" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="32,2"/>
-        <PasswordBox x:Name="Password" Grid.Column="3" Grid.Row="5" Style="{StaticResource PB}"/>
-        <TextBlock Margin="5 0 0 0" x:Name="Watermark" IsHitTestVisible="False" Text="Введите пароль" Grid.Row="5" Grid.Column="3"/>
+        <PasswordBox Foreground="#FFF" x:Name="Password" Grid.Column="3" Grid.Row="5" PasswordChanged="OnPasswordChanged"/>
+        <TextBlock Foreground="#FFF" Margin="5 0 0 0" x:Name="Watermark" IsHitTestVisible="False" Text="Введите пароль" Grid.Row="5" Grid.Column="3"/>
 
-        <TextBox x:Name="Login" Grid.Column="3" Grid.Row="3" TextWrapping="Wrap"/>
-        <TextBlock Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите ФИО" Grid.Row="3" Grid.Column="3">
+        <TextBox Foreground="#FFF" x:Name="Login" Grid.Column="3" Grid.Row="3" TextWrapping="Wrap"/>
+        <TextBlock Foreground="#FFF" Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите ФИО" Grid.Row="3" Grid.Column="3">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -51,6 +52,7 @@
             </TextBlock.Style>
         </TextBlock>
         <Button ToolTip="Вход в аккаунт" Content="Вход" Grid.Column="3" Grid.Row="7" Click="Button_Click"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
 
     </Grid>
 </Page>

@@ -23,6 +23,7 @@ namespace UniBook.Pages
         public StudentPage()
         {
             InitializeComponent();
+            HelloTeacher.Content = $"Здарвствуйте,  {User.Name}";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -38,6 +39,11 @@ namespace UniBook.Pages
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             NavigationService?.Navigate(new ShowRating());
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new AuthPage());
         }
     }
 }

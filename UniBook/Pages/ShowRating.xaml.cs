@@ -25,5 +25,10 @@ namespace UniBook.Pages
             InitializeComponent();
             dgQuestion.ItemsSource= Entities.GetContext().Testing.ToList();
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.GoBack();
+        }
     }
 }

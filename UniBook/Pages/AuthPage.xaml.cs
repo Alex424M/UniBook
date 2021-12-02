@@ -85,5 +85,10 @@ namespace UniBook.Pages
                 Watermark.Visibility = Visibility.Visible;
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new MainPage());
+        }
     }
 }

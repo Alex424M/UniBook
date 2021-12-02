@@ -264,5 +264,9 @@ namespace UniBook.Pages
 
         }
 
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new PassingTest());
+        }
     }
 }

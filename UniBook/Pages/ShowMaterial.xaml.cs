@@ -75,5 +75,10 @@ namespace UniBook.Pages
             documentViewer1.Document =
                 ConvertWordDocToXPSDoc(doc, newXPSDocumentName).GetFixedDocumentSequence();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new ShowTheory());
+        }
     }
 }

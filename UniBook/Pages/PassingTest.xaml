@@ -29,7 +29,8 @@
         </Grid.ColumnDefinitions>
         <Label Content="Прохождение теста" Grid.Column="1" HorizontalAlignment="Left" Margin="34,6,0,0" Grid.Row="1" VerticalAlignment="Top" Height="24" Width="125"/>
         <Button Content="Пройти" ToolTip="Пройти тест" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Width="189" Height="30" Click="Button_Click"/>
-        <ComboBox x:Name="cmb1" DisplayMemberPath="Topic" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="189" Height="30" Style="{StaticResource PB2}"/>
-        <TextBlock Margin="5 0 0 0" x:Name="Watermark2" IsHitTestVisible="False" Text="Выберите тему" Grid.Row="3" Grid.Column="1"/>
+        <ComboBox Foreground="#FFF" x:Name="cmb1" DisplayMemberPath="Topic" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="189" Height="30" SelectionChanged="OnItemChanged"/>
+        <TextBlock Foreground="#FFF" Margin="5 0 0 0" x:Name="Watermark2" IsHitTestVisible="False" Text="Выберите тему" Grid.Row="3" Grid.Column="1"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
     </Grid>
 </Page>

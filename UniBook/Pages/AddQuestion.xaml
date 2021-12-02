@@ -41,8 +41,8 @@
             <RowDefinition Height="1.3*"/>
         </Grid.RowDefinitions>
         <Label HorizontalAlignment="Center" Content="Добавление вопроса" Grid.Row="1" VerticalAlignment="Top" Height="30" Grid.Column="1" Grid.ColumnSpan="2" Margin="98,0"/>
-        <TextBox x:Name="txtQustion" Grid.Column="1" HorizontalAlignment="Center" Height="30" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2"/>
-        <TextBlock Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите вопрос" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
+        <TextBox Foreground="#FFF" x:Name="txtQustion" Grid.Column="1" HorizontalAlignment="Center" Height="30" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2"/>
+        <TextBlock Foreground="#FFF" Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите вопрос" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -54,8 +54,8 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <TextBox x:Name="txtAnswer1"  Grid.Column="1" HorizontalAlignment="Center" Height="30" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2"/>
-        <TextBlock Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите первый вариант ответа" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
+        <TextBox Foreground="#FFF" x:Name="txtAnswer1"  Grid.Column="1" HorizontalAlignment="Center" Height="30" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2"/>
+        <TextBlock Foreground="#FFF" Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите первый вариант ответа" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -67,8 +67,8 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <TextBox x:Name="txtAnswer2"  Grid.Column="1" HorizontalAlignment="Center" Height="30" Grid.Row="9" TextWrapping="Wrap" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2"/>
-        <TextBlock Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите второй вариант ответа" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2">
+        <TextBox Foreground="#FFF" x:Name="txtAnswer2"  Grid.Column="1" HorizontalAlignment="Center" Height="30" Grid.Row="9" TextWrapping="Wrap" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2"/>
+        <TextBlock Foreground="#FFF" Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите второй вариант ответа" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -80,8 +80,8 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <TextBox x:Name="txtAnswer3" Grid.Column="1" HorizontalAlignment="Center" Height="30" Grid.Row="11" TextWrapping="Wrap" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2"/>
-        <TextBlock Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите третий вариант ответа" Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="2">
+        <TextBox Foreground="#FFF" x:Name="txtAnswer3" Grid.Column="1" HorizontalAlignment="Center" Height="30" Grid.Row="11" TextWrapping="Wrap" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2"/>
+        <TextBlock Foreground="#FFF" Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите третий вариант ответа" Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="2">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -93,8 +93,8 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <TextBox x:Name="txtAnswer4"  Grid.Column="1" HorizontalAlignment="Center" Height="30" Grid.Row="13" TextWrapping="Wrap" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2"/>
-        <TextBlock Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите четвёртый вариант ответа" Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="2">
+        <TextBox Foreground="#FFF" x:Name="txtAnswer4"  Grid.Column="1" HorizontalAlignment="Center" Height="30" Grid.Row="13" TextWrapping="Wrap" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2"/>
+        <TextBlock Foreground="#FFF" Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите четвёртый вариант ответа" Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="2">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -106,8 +106,8 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <TextBox x:Name="txtTrueAnswer"  Grid.Column="1" HorizontalAlignment="Center" Height="30" Grid.Row="15" TextWrapping="Wrap" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2"/>
-        <TextBlock Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите правильный вариант ответа" Grid.Row="15" Grid.Column="1" Grid.ColumnSpan="2">
+        <TextBox Foreground="#FFF" x:Name="txtTrueAnswer"  Grid.Column="1" HorizontalAlignment="Center" Height="30" Grid.Row="15" TextWrapping="Wrap" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2"/>
+        <TextBlock  Foreground="#FFF" Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите правильный вариант ответа" Grid.Row="15" Grid.Column="1" Grid.ColumnSpan="2">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -120,7 +120,8 @@
             </TextBlock.Style>
         </TextBlock>
         <Button ToolTip="Сохранить вопрос" Content="Сохранить" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="17" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2" Height="30" Click="Button_Click"/>
-        <ComboBox DisplayMemberPath="Topic" x:Name="cmb1" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2" Height="30" Style="{StaticResource PB2}"/>
-        <TextBlock Margin="5 0 0 0" x:Name="Watermark2" IsHitTestVisible="False" Text="Выберите тему" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <ComboBox Foreground="#FFF" DisplayMemberPath="Topic" x:Name="cmb1" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2" Height="30" SelectionChanged="OnItemChanged"/>
+        <TextBlock Foreground="#FFF" Margin="5 0 0 0" x:Name="Watermark2" IsHitTestVisible="False" Text="Выберите тему" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
     </Grid>
 </Page>

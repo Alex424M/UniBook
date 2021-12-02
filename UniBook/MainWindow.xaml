@@ -4,8 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UniBook"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
+        xmlns:themes="clr-namespace:StyledWindow.WPF.Themes;assembly=StyledWindow.WPF"
+        Style="{StaticResource StyledWindow}"
+        
+        themes:StyledWindow.LanguageButtonVisible="True"
+        themes:StyledWindow.ThemeButtonVisible="True"
+        themes:StyledWindow.TopmostButtonVisible="True"
         Title="MainWindow" Height="550" Width="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -18,7 +25,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Frame Content="Frame" Grid.Column="1" Source="Pages/MainPage.xaml" Grid.Row="1"/>
+        <Frame Content="Frame" Grid.Column="1" Source="Pages/MainPage.xaml" NavigationUIVisibility="Hidden" Grid.Row="1"/>
 
     </Grid>
 </Window>

@@ -9,13 +9,13 @@
       Title="ShowRating">
 
     <Grid>
-        <DataGrid x:Name="dgQuestion" IsReadOnly="True" Grid.Row="1" Grid.RowSpan="2" AutoGenerateColumns="False" Grid.ColumnSpan="3">
+        <DataGrid x:Name="dgQuestion" IsReadOnly="True" AutoGenerateColumns="False" Margin="0,42,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Student.FIO}"  Header="Студент" Width="100*"/>
                 <DataGridTextColumn Binding="{Binding CorrectAnswers}"  Header="Оценка"  Width="100*"/>
                 <DataGridTextColumn Binding="{Binding PassingDate}"  Header="Дата"  Width="100*"/>
             </DataGrid.Columns>
         </DataGrid>
-
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
     </Grid>
 </Page>

@@ -20,7 +20,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Button ToolTip="Добавить новый вопрос" Content="Добавить" VerticalAlignment="Top" Height="32" Click="Button_Click" Grid.Column="1" HorizontalAlignment="Left" Width="142"/>
-        <DataGrid x:Name="dgQuestion" Grid.Row="1" Grid.RowSpan="2" AutoGenerateColumns="False" Grid.ColumnSpan="3">
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <DataGrid IsReadOnly="True" x:Name="dgQuestion" Grid.Row="1" Grid.RowSpan="2" AutoGenerateColumns="False" Grid.ColumnSpan="3">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Question}"  Header="Вопрос" Width="200"/>
                 <DataGridTextColumn Binding="{Binding Option1}"  Header="Ответ 1"  Width="100"/>

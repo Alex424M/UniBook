@@ -30,31 +30,32 @@
             </WindowsFormsHost.Child>
         </WindowsFormsHost>
         <!--<DataGrid x:Name="dgQuest" Height="225" AutoGenerateColumns="True" Grid.Row="1" Grid.RowSpan="9" VerticalAlignment="Top" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="800"/>-->
-        <Label x:Name="question1" Grid.Row="1" VerticalAlignment="Top" Height="40" HorizontalAlignment="Left" Width="370" Grid.Column="1"/>
-        <RadioButton x:Name="q11" GroupName="q1" Content="RadioButton" Grid.Column="1"  Grid.Row="1" VerticalAlignment="Top" Margin="0,55,123,0"/>
-        <RadioButton x:Name="q12" GroupName="q1" Content="RadioButton" Grid.Column="1"  Grid.Row="1" VerticalAlignment="Top" Margin="0,75,123,0"/>
-        <RadioButton x:Name="q13" GroupName="q1" Content="RadioButton" Grid.Column="1"  Grid.Row="1" VerticalAlignment="Top" Margin="0,95,123,0"/>
-        <RadioButton x:Name="q14" GroupName="q1" Content="RadioButton" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0,115,123,0"/>
-        <Label x:Name="question2" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="40" Width="370" Grid.Column="2"/>
-        <RadioButton x:Name="q21" GroupName="q2" Content="RadioButton" Grid.Column="2"  Grid.Row="1" VerticalAlignment="Top" Margin="0,55,125,0"/>
-        <RadioButton x:Name="q22" GroupName="q2" Content="RadioButton" Grid.Column="2"  Grid.Row="1" VerticalAlignment="Top" Margin="0,75,125,0"/>
-        <RadioButton x:Name="q23" GroupName="q2" Content="RadioButton" Grid.Column="2"  Grid.Row="1" VerticalAlignment="Top" Margin="0,95,125,0"/>
-        <RadioButton x:Name="q24" GroupName="q2" Content="RadioButton" Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" Margin="0,115,125,0"/>
+        <Label x:Name="question1" Grid.Row="1" VerticalAlignment="Top" Height="40" HorizontalAlignment="Left" Width="370" Grid.Column="1" Margin="0,10,0,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q11" GroupName="q1" Content="RadioButton" Grid.Column="1"  Grid.Row="1" VerticalAlignment="Top" Margin="0,55,123,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q12" GroupName="q1" Content="RadioButton" Grid.Column="1"  Grid.Row="1" VerticalAlignment="Top" Margin="0,75,123,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q13" GroupName="q1" Content="RadioButton" Grid.Column="1"  Grid.Row="1" VerticalAlignment="Top" Margin="0,95,123,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q14" GroupName="q1" Content="RadioButton" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0,115,123,0"/>
+        <Label x:Name="question2" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="40" Width="370" Grid.Column="2" Margin="0,10,0,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q21" GroupName="q2" Content="RadioButton" Grid.Column="2"  Grid.Row="1" VerticalAlignment="Top" Margin="0,55,125,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q22" GroupName="q2" Content="RadioButton" Grid.Column="2"  Grid.Row="1" VerticalAlignment="Top" Margin="0,75,125,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q23" GroupName="q2" Content="RadioButton" Grid.Column="2"  Grid.Row="1" VerticalAlignment="Top" Margin="0,95,125,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q24" GroupName="q2" Content="RadioButton" Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" Margin="0,115,125,0"/>
         <Label x:Name="question3" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Height="40" Width="370" Grid.Column="1" Margin="0,10,0,0" />
-        <RadioButton x:Name="q31" GroupName="q3" Content="RadioButton" Grid.Column="1"  Grid.Row="2" VerticalAlignment="Top" Margin="0,55,123,0"/>
-        <RadioButton x:Name="q32" GroupName="q3" Content="RadioButton" Grid.Column="1"  Grid.Row="2" VerticalAlignment="Top" Margin="0,75,123,0"/>
-        <RadioButton x:Name="q33" GroupName="q3" Content="RadioButton" Grid.Column="1"  Grid.Row="2" VerticalAlignment="Top" Margin="0,95,123,0"/>
-        <RadioButton x:Name="q34" GroupName="q3" Content="RadioButton" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0,115,123,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q31" GroupName="q3" Content="RadioButton" Grid.Column="1"  Grid.Row="2" VerticalAlignment="Top" Margin="0,55,123,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q32" GroupName="q3" Content="RadioButton" Grid.Column="1"  Grid.Row="2" VerticalAlignment="Top" Margin="0,75,123,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q33" GroupName="q3" Content="RadioButton" Grid.Column="1"  Grid.Row="2" VerticalAlignment="Top" Margin="0,95,123,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q34" GroupName="q3" Content="RadioButton" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0,115,123,0"/>
         <Label x:Name="question4" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Height="40" Width="370" Grid.Column="2" Margin="0,10,0,0"/>
-        <RadioButton x:Name="q41" GroupName="q4" Content="RadioButton" Grid.Column="2"  Grid.Row="2" VerticalAlignment="Top" Margin="0,55,125,0"/>
-        <RadioButton x:Name="q42" GroupName="q4" Content="RadioButton" Grid.Column="2"  Grid.Row="2" VerticalAlignment="Top" Margin="0,75,125,0"/>
-        <RadioButton x:Name="q43" GroupName="q4" Content="RadioButton" Grid.Column="2"  Grid.Row="2" VerticalAlignment="Top" Margin="0,95,125,0"/>
-        <RadioButton x:Name="q44" GroupName="q4" Content="RadioButton" Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" Margin="0,115,125,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q41" GroupName="q4" Content="RadioButton" Grid.Column="2"  Grid.Row="2" VerticalAlignment="Top" Margin="0,55,125,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q42" GroupName="q4" Content="RadioButton" Grid.Column="2"  Grid.Row="2" VerticalAlignment="Top" Margin="0,75,125,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q43" GroupName="q4" Content="RadioButton" Grid.Column="2"  Grid.Row="2" VerticalAlignment="Top" Margin="0,95,125,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q44" GroupName="q4" Content="RadioButton" Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" Margin="0,115,125,0"/>
         <Label x:Name="question5" Grid.Row="3" VerticalAlignment="Top" Height="40" Grid.Column="1" Margin="0,10,0,0"/>
-        <RadioButton x:Name="q51" GroupName="q5" Content="RadioButton" Grid.Column="1"  Grid.Row="3" VerticalAlignment="Top" Margin="0,55,123,0"/>
-        <RadioButton x:Name="q52" GroupName="q5" Content="RadioButton" Grid.Column="1"  Grid.Row="3" VerticalAlignment="Top" Margin="0,75,123,0"/>
-        <RadioButton x:Name="q53" GroupName="q5" Content="RadioButton" Grid.Column="1"  Grid.Row="3" VerticalAlignment="Top" Margin="0,95,123,0"/>
-        <RadioButton x:Name="q54" GroupName="q5" Content="RadioButton" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Margin="0,115,123,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q51" GroupName="q5" Content="RadioButton" Grid.Column="1"  Grid.Row="3" VerticalAlignment="Top" Margin="0,55,123,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q52" GroupName="q5" Content="RadioButton" Grid.Column="1"  Grid.Row="3" VerticalAlignment="Top" Margin="0,75,123,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q53" GroupName="q5" Content="RadioButton" Grid.Column="1"  Grid.Row="3" VerticalAlignment="Top" Margin="0,95,123,0"/>
+        <RadioButton Foreground="#FFF" x:Name="q54" GroupName="q5" Content="RadioButton" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Margin="0,115,123,0"/>
         <Label Content="" x:Name="est" Grid.Column="2" HorizontalAlignment="Left" Margin="35,95,0,0" Grid.Row="3" VerticalAlignment="Top" Height="46" Width="196"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
     </Grid>
 </Page>

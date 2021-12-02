@@ -44,8 +44,8 @@
             <ColumnDefinition Width="32"/>
             <ColumnDefinition Width="1.3*"/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="Login" Grid.Column="3" HorizontalAlignment="Left" Height="30" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151"/>
-        <TextBlock Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите ФИО" Grid.Row="3" Grid.Column="3">
+        <TextBox Foreground="#FFF" x:Name="Login" Grid.Column="3" HorizontalAlignment="Left" Height="30" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151"/>
+        <TextBlock Foreground="#FFF" Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите ФИО" Grid.Row="3" Grid.Column="3">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -57,19 +57,19 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <PasswordBox x:Name="Passwords" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Width="151" Height="30" Style="{StaticResource PB}"/>
-        <TextBlock Margin="5 0 0 0" x:Name="Watermark" IsHitTestVisible="False" Text="Введите пароль" Grid.Row="5" Grid.Column="3"/>
+        <PasswordBox Foreground="#FFF" x:Name="Passwords" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Width="151" Height="30" PasswordChanged="OnPasswordChanged"/>
+        <TextBlock Foreground="#FFF" Margin="5 0 0 0" x:Name="Watermark" IsHitTestVisible="False" Text="Введите пароль" Grid.Row="5" Grid.Column="3"/>
         <Label Content="ФИО" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Margin="38,2,41,2" Width="36"/>
         <Label Content="Пароль" Grid.Column="1"  Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Margin="30,2,33,2" Width="52"/>
-        <ComboBox DisplayMemberPath="NumberGroup" x:Name="CmbGroup" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="11" VerticalAlignment="Top" Width="151" Height="30" Style="{StaticResource PB2}"/>
-        <TextBlock Margin="5 0 0 0" x:Name="Watermark2" IsHitTestVisible="False" Text="Выберите группу" Grid.Row="11" Grid.Column="3"/>
+        <ComboBox Foreground="#FFF" DisplayMemberPath="NumberGroup" x:Name="CmbGroup" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="11" VerticalAlignment="Top" Width="151" Height="30" SelectionChanged="OnItemChanged"/>
+        <TextBlock Foreground="#FFF" Margin="5 0 0 0" x:Name="Watermark2" IsHitTestVisible="False" Text="Выберите группу" Grid.Row="11" Grid.Column="3"/>
         <CheckBox ToolTip="Выберите если вы учитель" x:Name="CheckTeacher" Content="Я учитель" Grid.Column="3" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" Height="15" Width="74" Checked="CheckTeacher_Checked" Unchecked="CheckTeacher_Unchecked"/>
         <Label Content="Повторите пароль" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Label x:Name="LblGroup" Content="Группа" Grid.Column="1" Grid.Row="11" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Label Content="Регистрация" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button ToolTip="Регистрация нового пользователя" Content="Регистрация" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="13" VerticalAlignment="Top" Width="151" Height="30" Click="Button_Click"/>
-        <PasswordBox x:Name="RepPass" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Width="151" Height="30" Style="{StaticResource PB1}"/>
-        <TextBlock Margin="5 0 0 0" x:Name="Watermark1" IsHitTestVisible="False" Text="Повторите пароль" Grid.Row="7" Grid.Column="3"/>
-
+        <PasswordBox Foreground="#FFF" x:Name="RepPass" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Top" Width="151" Height="30" PasswordChanged="OnPasswordChanged1"/>
+        <TextBlock Foreground="#FFF" Margin="5 0 0 0" x:Name="Watermark1" IsHitTestVisible="False" Text="Повторите пароль" Grid.Row="7" Grid.Column="3"/>
+        <Button Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
     </Grid>
 </Page>

@@ -40,5 +40,10 @@ namespace UniBook.Pages
         {
             NavigationService?.Navigate(new ShowRating());
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new AuthPage());
+        }
     }
 }
