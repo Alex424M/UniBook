@@ -41,16 +41,6 @@
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IDGroup" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="Teacher">
           <Key>
             <PropertyRef Name="ID" />
@@ -64,10 +54,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Estimation" Type="int" Nullable="false" />
           <Property Name="CorrectAnswers" Type="int" Nullable="false" />
-          <Property Name="Started" Type="datetime" Nullable="false" />
-          <Property Name="Ended" Type="datetime" Nullable="false" />
+          <Property Name="PassingDate" Type="date" Nullable="false" />
           <Property Name="IDStudent" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Theory">
@@ -144,7 +132,6 @@
           <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Testing" EntityType="Self.Testing" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Theory" EntityType="Self.Theory" Schema="dbo" store:Type="Tables" />
@@ -215,16 +202,6 @@
           <NavigationProperty Name="Group" Relationship="Self.FK_Student_Group" FromRole="Student" ToRole="Group" />
           <NavigationProperty Name="Testing" Relationship="Self.FK_Testing_Student" FromRole="Student" ToRole="Testing" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="Teacher">
           <Key>
             <PropertyRef Name="ID" />
@@ -239,10 +216,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Estimation" Type="Int32" Nullable="false" />
           <Property Name="CorrectAnswers" Type="Int32" Nullable="false" />
-          <Property Name="Started" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Ended" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PassingDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IDStudent" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Testing_Student" FromRole="Testing" ToRole="Student" />
         </EntityType>
@@ -323,7 +298,6 @@
           <EntitySet Name="Material" EntityType="Self.Material" />
           <EntitySet Name="Questions" EntityType="Self.Questions" />
           <EntitySet Name="Student" EntityType="Self.Student" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Teacher" EntityType="Self.Teacher" />
           <EntitySet Name="Testing" EntityType="Self.Testing" />
           <EntitySet Name="Theory" EntityType="Self.Theory" />
@@ -394,17 +368,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="UniBookModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Teacher">
             <EntityTypeMapping TypeName="UniBookModel.Teacher">
               <MappingFragment StoreEntitySet="Teacher">
@@ -418,10 +381,8 @@
             <EntityTypeMapping TypeName="UniBookModel.Testing">
               <MappingFragment StoreEntitySet="Testing">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Estimation" ColumnName="Estimation" />
                 <ScalarProperty Name="CorrectAnswers" ColumnName="CorrectAnswers" />
-                <ScalarProperty Name="Started" ColumnName="Started" />
-                <ScalarProperty Name="Ended" ColumnName="Ended" />
+                <ScalarProperty Name="PassingDate" ColumnName="PassingDate" />
                 <ScalarProperty Name="IDStudent" ColumnName="IDStudent" />
               </MappingFragment>
             </EntityTypeMapping>

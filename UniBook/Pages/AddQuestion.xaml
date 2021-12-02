@@ -7,7 +7,11 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
       Title="AddQuestion">
-
+    <Page.Resources>
+        <Style x:Key="PB2" TargetType="ComboBox">
+            <EventSetter Event="SelectionChanged" Handler="OnItemChanged"/>
+        </Style>
+    </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1.1*"/>
@@ -38,14 +42,85 @@
         </Grid.RowDefinitions>
         <Label HorizontalAlignment="Center" Content="Добавление вопроса" Grid.Row="1" VerticalAlignment="Top" Height="30" Grid.Column="1" Grid.ColumnSpan="2" Margin="98,0"/>
         <TextBox x:Name="txtQustion" Grid.Column="1" HorizontalAlignment="Center" Height="30" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2"/>
+        <TextBlock Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите вопрос" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=txtQustion}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
         <TextBox x:Name="txtAnswer1"  Grid.Column="1" HorizontalAlignment="Center" Height="30" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2"/>
+        <TextBlock Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите первый вариант ответа" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=txtAnswer1}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
         <TextBox x:Name="txtAnswer2"  Grid.Column="1" HorizontalAlignment="Center" Height="30" Grid.Row="9" TextWrapping="Wrap" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2"/>
+        <TextBlock Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите второй вариант ответа" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=txtAnswer2}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
         <TextBox x:Name="txtAnswer3" Grid.Column="1" HorizontalAlignment="Center" Height="30" Grid.Row="11" TextWrapping="Wrap" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2"/>
+        <TextBlock Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите третий вариант ответа" Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="2">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=txtAnswer3}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
         <TextBox x:Name="txtAnswer4"  Grid.Column="1" HorizontalAlignment="Center" Height="30" Grid.Row="13" TextWrapping="Wrap" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2"/>
+        <TextBlock Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите четвёртый вариант ответа" Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="2">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=txtAnswer4}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
         <TextBox x:Name="txtTrueAnswer"  Grid.Column="1" HorizontalAlignment="Center" Height="30" Grid.Row="15" TextWrapping="Wrap" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2"/>
-        <CheckBox Content="Один ответ" x:Name="checkbox1" Grid.Column="3" HorizontalAlignment="Left" Margin="51,10,0,0" Grid.Row="7" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
-        <Button Content="Сохранить" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="17" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2" Height="30" Click="Button_Click"/>
-        <ComboBox DisplayMemberPath="Topic" x:Name="cmb1" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="162" Height="30"/>
-
+        <TextBlock Margin="5 0 0 0" IsHitTestVisible="False" Text="Введите правильный вариант ответа" Grid.Row="15" Grid.Column="1" Grid.ColumnSpan="2">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=txtTrueAnswer}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <Button ToolTip="Сохранить вопрос" Content="Сохранить" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="17" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2" Height="30" Click="Button_Click"/>
+        <ComboBox DisplayMemberPath="Topic" x:Name="cmb1" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="324" Grid.ColumnSpan="2" Height="30" Style="{StaticResource PB2}"/>
+        <TextBlock Margin="5 0 0 0" x:Name="Watermark2" IsHitTestVisible="False" Text="Выберите тему" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"/>
     </Grid>
 </Page>

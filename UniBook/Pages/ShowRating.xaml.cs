@@ -23,6 +23,7 @@ namespace UniBook.Pages
         public ShowRating()
         {
             InitializeComponent();
+            dgQuestion.ItemsSource= Entities.GetContext().Testing.ToList();
         }
     }
 }

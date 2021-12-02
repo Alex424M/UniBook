@@ -19,7 +19,7 @@
             <RowDefinition Height="417*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Content="Добавить" VerticalAlignment="Top" Height="32" Click="Button_Click" Grid.Column="1" HorizontalAlignment="Left" Width="142"/>
+        <Button ToolTip="Добавить новый вопрос" Content="Добавить" VerticalAlignment="Top" Height="32" Click="Button_Click" Grid.Column="1" HorizontalAlignment="Left" Width="142"/>
         <DataGrid x:Name="dgQuestion" Grid.Row="1" Grid.RowSpan="2" AutoGenerateColumns="False" Grid.ColumnSpan="3">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Question}"  Header="Вопрос" Width="200"/>

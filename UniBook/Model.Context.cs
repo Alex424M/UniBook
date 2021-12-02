@@ -35,7 +35,6 @@ namespace UniBook
         public virtual DbSet<Material> Material { get; set; }
         public virtual DbSet<Questions> Questions { get; set; }
         public virtual DbSet<Student> Student { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Teacher> Teacher { get; set; }
         public virtual DbSet<Testing> Testing { get; set; }
         public virtual DbSet<Theory> Theory { get; set; }

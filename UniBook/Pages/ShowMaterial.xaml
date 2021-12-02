@@ -6,13 +6,21 @@
       xmlns:local="clr-namespace:UniBook.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ShowMaterial">
+      Title="ShowMaterial" Loaded="Page_Loaded">
 
     <Grid>
-        <DocumentViewer Name="documentViewer1" Margin="0,42,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <TextBox Height="29" HorizontalAlignment="Left" Margin="6,6,0,0"
-             Name="SelectedFileTextBox" VerticalAlignment="Top" Width="276" />
-        <Button Content="Browse" Height="30" HorizontalAlignment="Right" Margin="0,6,93,0"
-            Name="BrowseButton" VerticalAlignment="Top" Width="122" Click="BrowseButton_Click" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <DocumentViewer Name="documentViewer1" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+
+
     </Grid>
 </Page>

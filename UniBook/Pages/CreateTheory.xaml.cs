@@ -30,31 +30,28 @@ namespace UniBook.Pages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter= "text files(*.docx,*.doc)|*.docx;*.doc|All Files|*.*";
             ofd.ShowDialog();
-            if (ofd.FileName != "") // проверка на выбор файла
+            if (ofd.FileName != "")
             {
                 var sr = ofd.FileName;
                 string sourceDir = System.IO.Path.GetDirectoryName(sr);
                 string backupDir = @"..\..\Resource";
                 try
-                {
+                {                   
+                    string fName = System.IO.Path.GetFileName(sr);
 
-                        // Remove path from the file name.
-                        string fName = System.IO.Path.GetFileName(sr);
+                    try
+                    {
+                        File.Copy(System.IO.Path.Combine(sourceDir, fName), System.IO.Path.Combine(backupDir, fName));
+                        direct = @"C:\Users\NyxSon\Desktop\UniBook\UniBook\Resource" + "\\" + fName;
+                    }
 
-                        try
-                        {
-                            // Will not overwrite if the destination file already exists.
-                            File.Copy(System.IO.Path.Combine(sourceDir, fName), System.IO.Path.Combine(backupDir, fName));
-                            direct = backupDir+@"\"+fName;
-                        }
+                    catch (IOException copyError)
+                    {
+                        Console.WriteLine(copyError.Message);
+                    }
 
-                        // Catch exception if the file was already copied.
-                        catch (IOException copyError)
-                        {
-                            Console.WriteLine(copyError.Message);
-                        }
-                    
                 }
                 catch (DirectoryNotFoundException dirNotFound)
                 {
@@ -67,22 +64,30 @@ namespace UniBook.Pages
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            using (Entities db = new Entities())
+            try
+            {             
+                using (Entities db = new Entities())
+                {
+                    Material userObject = new Material
+                    {
+                        Material1 = direct
+                    };
+                    db.Material.Add(userObject);
+                    db.SaveChanges();
+                    Theory theory = new Theory
+                    {
+                        Topic = Topic.Text,
+                        IDTeacher = User.ID,
+                        IDMaterial = userObject.ID
+                    };
+                    db.Theory.Add(theory);
+                    db.SaveChanges();
+                }
+                MessageBox.Show("Материал успешно сохранён!");
+            }
+            catch (Exception ex)
             {
-                Material userObject = new Material
-                {
-                    Material1 = direct
-                };
-                db.Material.Add(userObject);
-                db.SaveChanges();
-                Theory theory = new Theory
-                {
-                    Topic = Topic.Text,
-                    IDTeacher = User.ID,
-                    IDMaterial = userObject.ID
-                };
-                db.Theory.Add(theory);
-                db.SaveChanges();
+                MessageBox.Show(ex.Message);
             }
         }
     }

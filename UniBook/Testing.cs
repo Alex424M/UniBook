@@ -15,10 +15,8 @@ namespace UniBook
     public partial class Testing
     {
         public int ID { get; set; }
-        public int Estimation { get; set; }
         public int CorrectAnswers { get; set; }
-        public System.DateTime Started { get; set; }
-        public System.DateTime Ended { get; set; }
+        public System.DateTime PassingDate { get; set; }
         public int IDStudent { get; set; }
     
         public virtual Student Student { get; set; }

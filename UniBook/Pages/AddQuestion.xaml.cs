@@ -39,15 +39,12 @@ namespace UniBook.Pages
                 errors.AppendLine("Укажите вопрос!");
             if (string.IsNullOrWhiteSpace(txtAnswer1.Text))
                 errors.AppendLine("Укажите 1 ответ!");
-            if (checkbox1.IsChecked == false)
-            {
-                if (string.IsNullOrWhiteSpace(txtAnswer2.Text))
-                    errors.AppendLine("Укажите 2 ответ!");
-                if (string.IsNullOrWhiteSpace(txtAnswer3.Text))
-                    errors.AppendLine("Укажите 3 ответ!");
-                if (string.IsNullOrWhiteSpace(txtAnswer4.Text))
-                    errors.AppendLine("Укажите 4 ответ!");
-            }
+            if (string.IsNullOrWhiteSpace(txtAnswer2.Text))
+                errors.AppendLine("Укажите 2 ответ!");
+            if (string.IsNullOrWhiteSpace(txtAnswer3.Text))
+                errors.AppendLine("Укажите 3 ответ!");
+            if (string.IsNullOrWhiteSpace(txtAnswer4.Text))
+                errors.AppendLine("Укажите 4 ответ!");
             if (string.IsNullOrWhiteSpace(txtTrueAnswer.Text))
                 errors.AppendLine("Укажите правильный ответ!");
 
@@ -56,7 +53,7 @@ namespace UniBook.Pages
                 MessageBox.Show(errors.ToString());
                 return;
             }
-            if (checkbox1.IsChecked == false)
+            try
             {
                 using (Entities db = new Entities())
                 {
@@ -73,22 +70,13 @@ namespace UniBook.Pages
                     db.Questions.Add(questions);
                     db.SaveChanges();
                 }
+                MessageBox.Show("Вопрос успешно сохранён!");
             }
-            else
+            catch (Exception ex)
             {
-                using (Entities db = new Entities())
-                {
-                    Questions questions = new Questions
-                    {
-                        Question = txtQustion.Text,
-                        Option1 = txtAnswer1.Text,
-                        Answer = txtTrueAnswer.Text,
-                        IDTheory = cmb1.SelectedIndex + 1
-                    };
-                    db.Questions.Add(questions);
-                    db.SaveChanges();
-                }
+                MessageBox.Show(ex.Message);
             }
+
             //if (questions.ID == 0)
             //    Entities.GetContext().Questions.Add(questions);
 
@@ -97,20 +85,17 @@ namespace UniBook.Pages
 
         }
 
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-            txtAnswer1.IsEnabled = false;
-            txtAnswer2.IsEnabled = false;
-            txtAnswer3.IsEnabled = false;
-            txtAnswer4.IsEnabled = false;
-        }
 
-        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        private void OnItemChanged(object sender, RoutedEventArgs e)
         {
-            txtAnswer1.IsEnabled = true;
-            txtAnswer2.IsEnabled = true;
-            txtAnswer3.IsEnabled = true;
-            txtAnswer4.IsEnabled = true;
+            if (cmb1.SelectedIndex > -1)
+            {
+                Watermark2.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Watermark2.Visibility = Visibility.Visible;
+            }
         }
     }
 }

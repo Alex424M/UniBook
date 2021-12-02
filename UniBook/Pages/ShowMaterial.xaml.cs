@@ -1,6 +1,7 @@
 ﻿using Microsoft.Office.Interop.Word;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,10 +23,12 @@ namespace UniBook.Pages
     /// </summary>
     public partial class ShowMaterial : System.Windows.Controls.Page
     {
-        public ShowMaterial()
+        public ShowMaterial(int IDMaterial)
         {
             InitializeComponent();
+            IDMaterial1 = IDMaterial;
         }
+        int IDMaterial1;
         private XpsDocument ConvertWordDocToXPSDoc(string wordDocName, string xpsDocName)
         {
             Microsoft.Office.Interop.Word.Application
@@ -35,6 +38,7 @@ namespace UniBook.Pages
             Document doc = wordApplication.ActiveDocument;
             try
             {
+                doc.SaveAs(xpsDocName, WdSaveFormat.wdFormatXPS);
 
                 XpsDocument xpsDoc = new XpsDocument(xpsDocName, System.IO.FileAccess.Read);
                 return xpsDoc;
@@ -48,13 +52,28 @@ namespace UniBook.Pages
 
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
         {
-            string doc = @"C:\Users\NyxSon\Desktop\UniBook\UniBook\Resource\ПР№9 Соколов Морозов.docx";
-                    string newXPSDocumentName = String.Concat(System.IO.Path.GetDirectoryName(doc), "\\",
-                                   System.IO.Path.GetFileNameWithoutExtension(doc), ".xps");
-
-                    documentViewer1.Document =
-                        ConvertWordDocToXPSDoc(doc, newXPSDocumentName).GetFixedDocumentSequence();
+            
               
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            string name;
+            string sqlExpression = $"SELECT Material FROM Material WHERE ID='{IDMaterial1}'";
+            using (SqlConnection connection = new SqlConnection(@"data source=DESKTOP-PINVO2L\SQLEXPRESS;initial catalog=UniBook;integrated security=True;MultipleActiveResultSets=True;"))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand();
+                command.CommandText = sqlExpression;
+                command.Connection = connection;
+                name = command.ExecuteScalar().ToString();
+            }
+            string doc = name;
+            string newXPSDocumentName = String.Concat(System.IO.Path.GetDirectoryName(doc), "\\",
+                           System.IO.Path.GetFileNameWithoutExtension(doc), ".xps");
+
+            documentViewer1.Document =
+                ConvertWordDocToXPSDoc(doc, newXPSDocumentName).GetFixedDocumentSequence();
         }
     }
 }

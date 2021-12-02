@@ -37,157 +37,176 @@ namespace UniBook.Pages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             int estimation = 0;
-            if (ans[0] != q11.Content && q11.IsChecked == false)
+            if (ans[0] != q11.Content.ToString() && q11.IsChecked == false)
             {
-                if (ans[0] != q12.Content && q12.IsChecked == false)
+                if (ans[0] != q12.Content.ToString() && q12.IsChecked == false)
                 {
-                    if (ans[0] != q13.Content && q13.IsChecked == false)
+                    if (ans[0] != q13.Content.ToString() && q13.IsChecked == false)
                     {
-                        if (ans[0] != q14.Content && q14.IsChecked == false)
+                        if (ans[0] != q14.Content.ToString() && q14.IsChecked == false)
                         {
                             MessageBox.Show("Успех","Ошибка");
                         }
-                        else
+                        else if(ans[0] == q14.Content.ToString() && q14.IsChecked == true)
                         {
                             estimation++;
                         }
                     }
-                    else
+                    else if (ans[0] == q13.Content.ToString() && q13.IsChecked == true)
                     {
                         estimation++;
                     }
                 }
-                else
+                else if (ans[0] == q12.Content.ToString() && q12.IsChecked == true)
                 {
                     estimation++;
                 }
             }
-            else
+            else if(ans[0] == q11.Content.ToString() && q11.IsChecked == true)
             {
                 estimation++;
             }
-            if (ans[1] != q21.Content && q21.IsChecked == false)
+            if (ans[1] != q21.Content.ToString() && q21.IsChecked == false)
             {
-                if (ans[1] != q22.Content && q22.IsChecked == false)
+                if (ans[1] != q22.Content.ToString() && q22.IsChecked == false)
                 {
-                    if (ans[1] != q23.Content && q23.IsChecked == false)
+                    if (ans[1] != q23.Content.ToString() && q23.IsChecked == false)
                     {
-                        if (ans[1] != q24.Content && q24.IsChecked == false)
+                        if (ans[1] != q24.Content.ToString() && q24.IsChecked == false)
                         {
                             MessageBox.Show("Успех", "Ошибка");
                         }
-                        else
+                        else if (ans[1] == q24.Content.ToString() && q24.IsChecked == true)
                         {
                             estimation++;
                         }
                     }
-                    else
+                    else if(ans[1] == q23.Content.ToString() && q23.IsChecked == true)
                     {
                         estimation++;
                     }
                 }
-                else
+                else if (ans[1] == q22.Content.ToString() && q22.IsChecked == true)
                 {
                     estimation++;
                 }
             }
-            else
+            else if (ans[1] == q21.Content.ToString() && q21.IsChecked == true)
             {
                 estimation++;
             }
-            if (ans[2] != q31.Content && q31.IsChecked == false)
+            if (ans[2] != q31.Content.ToString() && q31.IsChecked == false)
             {
-                if (ans[2] != q32.Content && q32.IsChecked == false)
+                if (ans[2] != q32.Content.ToString() && q32.IsChecked == false)
                 {
-                    if (ans[2] != q33.Content && q33.IsChecked == false)
+                    if (ans[2] != q33.Content.ToString() && q33.IsChecked == false)
                     {
-                        if (ans[2] != q34.Content && q34.IsChecked == false)
+                        if (ans[2] != q34.Content.ToString() && q34.IsChecked == false)
                         {
                             MessageBox.Show("Успех", "Ошибка");
                         }
-                        else
+                        else if (ans[2] == q34.Content.ToString() && q34.IsChecked == true)
                         {
                             estimation++;
                         }
                     }
-                    else
+                    else if (ans[2] == q33.Content.ToString() && q33.IsChecked == true)
                     {
                         estimation++;
                     }
                 }
-                else
+                else if (ans[2] == q32.Content.ToString() && q32.IsChecked == true)
                 {
                     estimation++;
                 }
             }
-            else
+            else if (ans[2] == q31.Content.ToString() && q31.IsChecked == true)
             {
                 estimation++;
             }
-            if (ans[3] != q41.Content && q41.IsChecked == false)
+            if (ans[3] != q41.Content.ToString() && q41.IsChecked == false)
             {
-                if (ans[3] != q42.Content && q42.IsChecked == false)
+                if (ans[3] != q42.Content.ToString() && q42.IsChecked == false)
                 {
-                    if (ans[3] != q43.Content && q43.IsChecked == false)
+                    if (ans[3] != q43.Content.ToString() && q43.IsChecked == false)
                     {
-                        if (ans[3] != q44.Content && q44.IsChecked == false)
+                        if (ans[3] != q44.Content.ToString() && q44.IsChecked == false)
                         {
                             MessageBox.Show("Успех", "Ошибка");
                         }
-                        else
+                        else if (ans[3] == q44.Content.ToString() && q44.IsChecked == true)
                         {
                             estimation++;
                         }
                     }
-                    else
+                    else if (ans[3] == q43.Content.ToString() && q43.IsChecked == true)
                     {
                         estimation++;
                     }
                 }
-                else
+                else if (ans[3] == q42.Content.ToString() && q42.IsChecked == true)
                 {
                     estimation++;
                 }
             }
-            else
+            else if(ans[3] == q41.Content.ToString() && q41.IsChecked == true)
             {
                 estimation++;
             }
-            if (ans[4] != q51.Content && q51.IsChecked == false)
+            if (ans[4] != q51.Content.ToString() && q51.IsChecked == false)
             {
-                if (ans[4] != q52.Content && q52.IsChecked == false)
+                if (ans[4] != q52.Content.ToString() && q52.IsChecked == false)
                 {
-                    if (ans[4] != q53.Content && q53.IsChecked == false)
+                    if (ans[4] != q53.Content.ToString() && q53.IsChecked == false)
                     {
-                        if (ans[4] != q54.Content && q54.IsChecked == false)
+                        if (ans[4] != q54.Content.ToString() && q54.IsChecked == false)
                         {
                             MessageBox.Show("Успех", "Ошибка");
                         }
-                        else
+                        else if (ans[4] == q54.Content.ToString() && q54.IsChecked == true)
                         {
                             estimation++;
                         }
                     }
-                    else
+                    else if (ans[4] == q53.Content.ToString() && q53.IsChecked == true)
                     {
                         estimation++;
                     }
                 }
-                else
+                else if (ans[4] == q52.Content.ToString() && q52.IsChecked == true)
                 {
                     estimation++;
                 }
             }
-            else
+            else if (ans[4] == q51.Content.ToString() && q51.IsChecked == true)
             {
                 estimation++;
             }
-            est.Content = $"Ваша оценка: {estimation}";
+            est.Content = $"Правильных ответов: {estimation}";
+            try
+            {
+                using (Entities db = new Entities())
+                {
+                    Testing testing = new Testing
+                    {
+                        CorrectAnswers = estimation,
+                        PassingDate = DateTime.Now.Date,
+                        IDStudent = User.ID
+                    };
+                    db.Testing.Add(testing);
+                    db.SaveChanges();
+                }
+                MessageBox.Show("Тест успешно пройден!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             string sqlExpression = $"SELECT TOP 5 Question, Option1, Option2, Option3, Option4, Answer FROM Questions WHERE IDTheory={IdTest1} ORDER BY IDTheory ASC";
-            using (SqlConnection connection = new SqlConnection(@"data source=DESKTOP-E0VOF7A;initial catalog=UniBook;integrated security=True;MultipleActiveResultSets=True;"))
+            using (SqlConnection connection = new SqlConnection(@"data source=DESKTOP-PINVO2L\SQLEXPRESS;initial catalog=UniBook;integrated security=True;MultipleActiveResultSets=True;"))
             {
                 connection.Open();
                 SqlCommand createCommand = new SqlCommand(sqlExpression, connection);

@@ -32,7 +32,7 @@ namespace UniBook.Pages
         {
             string name = cmb1.Text;
             string sqlExpression = $"SELECT ID FROM Theory WHERE TOPIC='{name}'";
-            using (SqlConnection connection = new SqlConnection(@"data source=DESKTOP-E0VOF7A;initial catalog=UniBook;integrated security=True;MultipleActiveResultSets=True;"))
+            using (SqlConnection connection = new SqlConnection(@"data source=DESKTOP-PINVO2L\SQLEXPRESS;initial catalog=UniBook;integrated security=True;MultipleActiveResultSets=True;"))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand();
@@ -41,6 +41,17 @@ namespace UniBook.Pages
                 name = command.ExecuteScalar().ToString();
             }
             NavigationService?.Navigate(new PassingTest2(int.Parse(name)));
+        }
+        private void OnItemChanged(object sender, RoutedEventArgs e)
+        {
+            if (cmb1.SelectedIndex > -1)
+            {
+                Watermark2.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Watermark2.Visibility = Visibility.Visible;
+            }
         }
     }
 }
